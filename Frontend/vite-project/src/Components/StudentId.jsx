@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { toast , ToastContainer} from "react-toastify"
+import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import axios from "axios"
 
@@ -42,26 +42,26 @@ const StudentId = () => {
   }
 
   return (
-    <div className="bg-gray-800 p-8 rounded-lg shadow-lg mb-6">
-      <h2 className="text-3xl font-bold text-white mb-6 text-center">
-        Submit Aadhar Card
+    <div className="bg-gray-800 p-6 rounded-lg shadow-lg  ml-[15%] mr-[15%]">
+      <h2 className="text-xl font-bold text-white mb-4 text-center">
+        Verify Student Id
       </h2>
       <form onSubmit={onSubmit}>
-        <div className="mb-4">
+        <div className="mb-3 flex items-center">
           <input
             type="file"
             name="aadharCard"
             onChange={onAadharCardChange}
-            className="w-full p-3 border border-gray-600 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="p-2 border border-gray-600 rounded-lg bg-gray-700 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blue-500 mr-3"
             required
           />
+          <button
+            type="submit"
+            className="py-2 px-4 bg-blue-600 text-sm text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300 ml-auto"
+          >
+            Verify SID
+          </button>
         </div>
-        <button
-          type="submit"
-          className="w-full py-3 mt-4 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition duration-300"
-        >
-          Submit Aadhar Card
-        </button>
       </form>
       <ToastContainer />
     </div>

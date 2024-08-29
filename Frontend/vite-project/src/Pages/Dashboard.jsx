@@ -1,31 +1,8 @@
+// import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react"
-import { useEffect } from "react"
 
 export default function Home() {
-  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0()
-
-  useEffect(() => {
-    if (isAuthenticated && user) {
-      // Send user data to the backend
-      fetch("http://localhost:5000/route/users/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: user.name,
-          email: user.email,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("User saved:", data)
-        })
-        .catch((error) => {
-          console.error("Error saving user:", error)
-        })
-    }
-  }, [isAuthenticated, user])
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0()
 
   const handleClick = (path) => {
     if (!isAuthenticated) {

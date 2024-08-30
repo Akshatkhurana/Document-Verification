@@ -1,35 +1,27 @@
-// import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react"
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0()
+  const navigate = useNavigate(); // Use the useNavigate hook
 
+  // Function to handle button clicks
   const handleClick = (path) => {
-    if (!isAuthenticated) {
-      alert("Please log in first to continue.")
-    } else {
-      window.location.href = path
-    }
-  }
+    navigate(path); // Navigate to the specified path
+  };
 
   return (
     <div className="w-screen h-screen flex justify-center items-center text-white bg-black/90 relative">
       <div className="">
-        {isAuthenticated ? (
-          <button
-            onClick={() => logout({ returnTo: window.location.origin })}
-            className="bg-red-600 px-4 py-2 rounded-lg text-white hover:bg-red-700 absolute top-4 right-4"
-          >
-            Logout
-          </button>
-        ) : (
-          <button
-            onClick={() => loginWithRedirect()}
-            className="bg-blue-700 px-4 py-2 rounded-lg  text-white hover:bg-blue-600 absolute top-4 left-4"
-          >
-            Log In
-          </button>
-        )}
+        <button
+          className="bg-red-600 px-4 py-2 rounded-lg text-white hover:bg-red-700 absolute top-4 right-4"
+        >
+          Logout
+        </button>
+        <button
+          onClick={() => handleClick("/login-signup")}
+          className="bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-600 absolute top-4 left-4"
+        >
+          Log In
+        </button>
       </div>
 
       <div className="w-full max-w-[600px] mx-auto text-center">
@@ -56,5 +48,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }

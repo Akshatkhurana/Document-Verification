@@ -54,6 +54,7 @@ const Data = () => {
         <button
           type="submit"
           className="w-[20%] py-2 mt-3 bg-blue-600 text-sm text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+          onSubmit={handleSubmit}
         >
           Submit
         </button>

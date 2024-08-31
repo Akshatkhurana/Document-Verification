@@ -6,10 +6,10 @@ import ResumeForm from "../Components/Resume"
 import Aadhar from "../Components/Aadhar"
 import StudentId from "../Components/StudentId"
 
-const CandidateApplication = () => {
+const Application = () => {
   const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const yes = (e) => {
     e.preventDefault() // Prevent the default link behavior
 
     // Perform validation checks here to ensure all fields are completed
@@ -33,23 +33,24 @@ const CandidateApplication = () => {
         <h1 className="text-4xl font-bold text-white mb-10 text-center">
           Candidate Application
         </h1>
-
-        <Data />
-        <ResumeForm />
-        <Aadhar />
-        <StudentId />
-
-        <button
-          type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 justify-center items-center flex mx-auto mt-10"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
       </div>
+
+      <Data />
+      <ResumeForm />
+      {/* <Aadhar /> */}
+      <StudentId />
+
+      <button
+        type="submit"
+        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 justify-center items-center flex mx-auto mt-10"
+        onClick={yes}
+      >
+        Submit
+      </button>
+
       <ToastContainer />
     </>
   )
 }
 
-export default CandidateApplication
+export default Application

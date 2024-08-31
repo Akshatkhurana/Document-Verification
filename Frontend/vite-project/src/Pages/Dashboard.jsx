@@ -11,9 +11,6 @@ export default function Home() {
   return (
     <div className="w-screen h-screen flex justify-center items-center text-white bg-black/90 relative">
       <div className="">
-        <button className="bg-red-600 px-4 py-2 rounded-lg text-white hover:bg-red-700 absolute top-4 right-4">
-          Logout
-        </button>
         <button
           onClick={() => handleClick("/login-signup")}
           className="bg-blue-700 px-4 py-2 rounded-lg text-white hover:bg-blue-600 absolute top-4 left-4"
@@ -25,14 +22,15 @@ export default function Home() {
       <div className="w-full max-w-[600px] mx-auto text-center">
         <h1 className="text-6xl mb-4">Smart India Hackathon SIH</h1>
         <p className="text-xl mb-4">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-          error, culpa quidem ipsa sit amet sint ratione aliquid laborum
-          quibusdam aperiam soluta? Inventore ad assumenda harum voluptas
-          architecto nesciunt aperiam!
+          It provides a platform for participants to address real-world
+          challenges posed by various ministries, departments, and industries.
+          By engaging in this hackathon, teams work on developing innovative
+          solutions and technologies that can drive societal impact and
+          contribute to India digital transformation.
         </p>
         <div>
           <button
-            onClick={() => handleClick("/Candidate")}
+            onClick={() => handleClick("/Application")}
             className="bg-blue-700 px-4 py-2 rounded-lg text-xl text-white hover:bg-blue-600"
           >
             Are you a candidate

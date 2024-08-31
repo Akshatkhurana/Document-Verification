@@ -1,57 +1,54 @@
-import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import Data from "../Components/Data"
+import ResumeForm from "../Components/Resume"
+import Aadhar from "../Components/Aadhar"
+import StudentId from "../Components/StudentId"
 
-const Interviewer = () => {
-  const [token, setToken] = useState("")
+const CandidateApplication = () => {
   const navigate = useNavigate()
 
-  const handleChange = (e) => {
-    setToken(e.target.value)
-  }
+  const handleSubmit = () => {
+    // Perform validation checks here to ensure all fields are completed
+    // If all validations pass, display success toast and redirect
+    const allFieldsCompleted = true // Replace with actual validation logic
 
-  const handleVerify = () => {
-    if (token === "1234") {
-      toast.success("Token Verified!")
-      navigate("/scheduling") // Redirect to new page after verification
+    if (allFieldsCompleted) {
+      toast.success("Verified successfully!")
+
+      // Redirect to the new page after 2 seconds
+      setTimeout(() => {
+        navigate("/candidateschedule")
+      }, 2000)
     } else {
-      toast.error("Invalid Token. Please try again.")
+      toast.error("Please complete all required fields.")
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black">
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
-        <h2 className="text-3xl font-bold text-white mb-6 text-center">
-          Interviewer Login
-        </h2>
-        <form onSubmit={(e) => e.preventDefault()}>
-          <div className="mb-4">
-            <label htmlFor="token" className="block text-white mb-2">
-              Enter Token:
-            </label>
-            <input
-              type="password"
-              id="token"
-              value={token}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border border-gray-600 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <button
-            type="button"
-            onClick={handleVerify}
-            className="w-full py-3 mt-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
-          >
-            Verify
-          </button>
-        </form>
-        <ToastContainer />
+    <>
+      <div className="bg-gray-900 h-full w-full">
+        <h1 className="text-4xl font-bold text-white mb-10 text-center">
+          Candidate Application
+        </h1>
+
+        <Data />
+        <ResumeForm />
+        <Aadhar />
+        <StudentId />
+
+        <button
+          type="submit"
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 justify-center items-center flex mx-auto mt-10"
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
       </div>
-    </div>
+      <ToastContainer />
+    </>
   )
 }
 
-export default Interviewer
+export default CandidateApplication

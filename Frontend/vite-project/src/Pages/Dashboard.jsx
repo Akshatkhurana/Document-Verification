@@ -1,19 +1,17 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 
 export default function Home() {
-  const navigate = useNavigate(); // Use the useNavigate hook
+  const navigate = useNavigate() // Use the useNavigate hook
 
   // Function to handle button clicks
   const handleClick = (path) => {
-    navigate(path); // Navigate to the specified path
-  };
+    navigate(path) // Navigate to the specified path
+  }
 
   return (
     <div className="w-screen h-screen flex justify-center items-center text-white bg-black/90 relative">
       <div className="">
-        <button
-          className="bg-red-600 px-4 py-2 rounded-lg text-white hover:bg-red-700 absolute top-4 right-4"
-        >
+        <button className="bg-red-600 px-4 py-2 rounded-lg text-white hover:bg-red-700 absolute top-4 right-4">
           Logout
         </button>
         <button
@@ -40,7 +38,7 @@ export default function Home() {
             Are you a candidate
           </button>
           <button
-            onClick={() => handleClick("/Interviewer")}
+            onClick={() => handleClick("/InterviewerToken")}
             className="bg-blue-700 px-4 py-2 rounded-lg text-xl ml-4 text-white hover:bg-blue-600"
           >
             Are you an interviewer?
@@ -48,5 +46,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  );
+  )
 }

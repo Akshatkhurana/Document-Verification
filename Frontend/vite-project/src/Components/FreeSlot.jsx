@@ -73,7 +73,7 @@ const FreeSlot = () => {
   }, [candidateInfo])
 
   return (
-    <div className="text-white p-6 bg-gray-900 min-h-screen">
+    <div className="text-white p-6 bg-gray-500 min-h-screen">
       <div className="container mx-auto">
         {loading ? (
           <div className="flex flex-col items-center justify-center min-h-screen">
@@ -131,7 +131,7 @@ const FreeSlot = () => {
                 inline
                 minDate={new Date()}
                 className="rounded-lg shadow-lg bg-gray-800 text-white p-4"
-                calendarClassName="bg-gray-800 text-white"
+                calendarClassName="bg-gray-600 text-white"
                 dayClassName={(date) =>
                   selectedDates.includes(date)
                     ? "bg-blue-600 text-white"
@@ -150,7 +150,7 @@ const FreeSlot = () => {
               </div>
             </div>
 
-            <div className="mb-6">
+            <div className="mb-6 w-1/3">
               <label className="block text-sm mb-2 text-white">
                 Select Time Slots
               </label>
@@ -188,7 +188,7 @@ const FreeSlot = () => {
 
             <button
               type="submit"
-              className="w-full py-2 mt-4 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+              className="w-1/3 py-2 mt-4 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
             >
               Submit Free Slots
             </button>
